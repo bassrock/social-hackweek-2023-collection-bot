@@ -1,7 +1,7 @@
-import { Collection } from './pocket';
+import { postCollection } from './mastodon';
 import { getRandomCollection } from './pocket';
 
-getRandomCollection().then((collection: Collection) => {
-  console.log(collection);
-  //TODO: post to mastodon
-});
+(async () => {
+  const collection = await getRandomCollection();
+  postCollection(collection);
+})();
